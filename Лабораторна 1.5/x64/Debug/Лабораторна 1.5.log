@@ -1,8 +1,0 @@
-﻿  FileName.cpp
-C:\Users\Asus\source\repos\Лабораторна 1.5\Лабораторна 1.5\FileName.cpp(15,15): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\Asus\source\repos\Лабораторна 1.5\Лабораторна 1.5\FileName.cpp(16,15): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\Asus\source\repos\Лабораторна 1.5\Лабораторна 1.5\FileName.cpp(29,15): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\Asus\source\repos\Лабораторна 1.5\Лабораторна 1.5\FileName.cpp(30,15): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\Asus\source\repos\Лабораторна 1.5\Лабораторна 1.5\FileName.cpp(46,28): warning C4305: 'initializing': truncation from 'int' to 'char'
-C:\Users\Asus\source\repos\Лабораторна 1.5\Лабораторна 1.5\FileName.cpp(46,28): warning C4309: 'initializing': truncation of constant value
-  Лабораторна 1.5.vcxproj -> C:\Users\Asus\source\repos\Лабораторна 1.5\x64\Debug\Лабораторна 1.5.exe
