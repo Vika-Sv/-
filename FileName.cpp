@@ -1,118 +1,187 @@
+//task 1
 #include <iostream>
 using namespace std;
 
-enum Names { IVAN, PETRO, OKSANA, OLGA, ANDRIY, NATALIA, DMYTRO };
-
-struct Student {
-    Names name;        // 1-ша компонента: 
-    int birthDay;      // 2-га компонента: 
-    int birthMonth;    // 3-тя компонента: 
-};
-
-
-string getName(Names name) {
-    switch (name) {
-    case IVAN: return "Іван";
-    case PETRO: return "Петро";
-    case OKSANA: return "Оксана";
-    case OLGA: return "Ольга";
-    case ANDRIY: return "Андрій";
-    case NATALIA: return "Наталія";
-    case DMYTRO: return "Дмитро";
-    default: return "Невідомо";
+int main() {
+    
+    int a = 10, b = 20;
+    if (a > b) {
+        cout << "a більше за b" << endl;
     }
+    else if (a == b) {
+        cout << "a дорівнює b" << endl;
+    }
+    else {
+        cout << "a менше за b" << endl;
+    }
+
+    
+    int day = 3;
+    switch (day) {
+    case 1:
+        cout << "Понеділок" << endl;
+        break;
+    case 2:
+        cout << "Вівторок" << endl;
+        break;
+    case 3:
+        cout << "Середа" << endl;
+        break;
+    case 4:
+        cout << "Четвер" << endl;
+        break;
+    case 5:
+        cout << "П'ятниця" << endl;
+        break;
+    case 6:
+        cout << "Субота" << endl;
+        break;
+    case 7:
+        cout << "Неділя" << endl;
+        break;
+    default:
+        cout << "Неправильний день" << endl;
+    }
+
+   
+    cout << "Цикл for:" << endl;
+    for (int i = 1; i <= 5; ++i) {
+        cout << "i = " << i << endl;
+    }
+
+    
+    cout << "Цикл while:" << endl;
+    int counter = 1;
+    while (counter <= 5) {
+        cout << "counter = " << counter << endl;
+        counter++;
+    }
+
+    
+    cout << "Цикл do-while:" << endl;
+    int number = 1;
+    do {
+        cout << "number = " << number << endl;
+        number++;
+    } while (number <= 5);
+
+    return 0;
 }
+ 
+
+// Task 2 
+
+
+#include <iostream>
+using namespace std;
 
 int main() {
-  
-    Student students[7] = {
-        {IVAN, 15, 9},   // Іван, 15 вересня
-        {PETRO, 5, 10},  // Петро, 5 жовтня
-        {OKSANA, 12, 3}, // Оксана, 12 березня
-        {OLGA, 25, 11},  // Ольга, 25 листопада
-        {ANDRIY, 8, 5},  // Андрій, 8 травня
-        {NATALIA, 22, 9}, // Наталія, 22 вересня
-        {DMYTRO, 30, 7}  // Дмитро, 30 липня
-    };
+    int number;
 
- 
-    int autumnCount = 0;
-    for (int i = 0; i < 7; i++) {
 
-        if (students[i].birthMonth == 9 || students[i].birthMonth == 10 || students[i].birthMonth == 11) {
-            autumnCount++;
+    cout << "Enter number: ";
+    cin >> number;
+
+
+    if (number % 2 == 0) {
+        cout << "Number " << number << " even" << endl;
+    }
+    else {
+        cout << "Number " << number << " not even" << endl;
+    }
+
+    switch (number % 2) {
+    case 0:
+        cout << "Number " << number << " even ( switch)." << endl;
+        break;
+    case 1:
+    case -1:  
+        cout << "Number " << number << " not even ( switch)." << endl;
+        break;
+    default:
+        cout << "Unknown error" << endl;
+    }
+
+    
+    cout << "Checking numbers from 1 to 10 through a for loop:" << endl;
+    for (int i = 1; i <= 10; i++) {
+        if (i % 2 == 0) {
+            cout << "Number " << i << " even" << endl;
+        }
+        else {
+            cout << "Number " << i << " not even" << endl;
         }
     }
 
     
-    double autumnPercentage = (autumnCount / 7.0) * 100;
-
-  
-    cout << "Percentage of students born in autumn: " << autumnPercentage << "%" << endl;
+    int counter = 1;
+    cout << "Checking the numbers from 1 to 5 through a while loop:" << endl;
+    while (counter <= 5) {
+        if (counter % 2 == 0) {
+            cout << "Number" << counter << " even" << endl;
+        }
+        else {
+            cout << "Number" << counter << " not even" << endl;
+        }
+        counter++;
+    }
 
     return 0;
 }
 
-
-//part 2
-
+//Task 3
 
 #include <iostream>
 using namespace std;
 
-enum Names { IVAN, PETRO, OKSANA, OLGA, ANDRIY, NATALIA, DMYTRO };
-
-
-struct Student {
-    Names name;        // 1-ша компонента:
-    int course;        // 2-га компонента: 
-    char gender;       // 3-тя компонента: 
-};
-
-
-string getName(Names name) {
-    switch (name) {
-    case IVAN: return "Іван";
-    case PETRO: return "Петро";
-    case OKSANA: return "Оксана";
-    case OLGA: return "Ольга";
-    case ANDRIY: return "Андрій";
-    case NATALIA: return "Наталія";
-    case DMYTRO: return "Дмитро";
-    default: return "Невідомо";
+int countSetBits(int num) {
+    int count = 0;
+    while (num > 0) {
+        
+        count += num & 1;
+       
+        num >>= 1;
     }
+    return count;
 }
 
 int main() {
- 
-    Student students[7] = {
-        {IVAN, 1, 'M'},   // Іван, 1 курс, чоловіча стать
-        {PETRO, 2, 'M'},  // Петро, 2 курс, чоловіча стать
-        {OKSANA, 1, 'F'}, // Оксана, 1 курс, жіноча стать
-        {OLGA, 3, 'F'},   // Ольга, 3 курс, жіноча стать
-        {ANDRIY, 1, 'M'}, // Андрій, 1 курс, чоловіча стать
-        {NATALIA, 4, 'F'}, // Наталія, 4 курс, жіноча стать
-        {DMYTRO, 1, 'M'}  // Дмитро, 1 курс, чоловіча стать
-    };
+    int number;
+    cout << "Enter number ";
+    cin >> number;
 
+    int setBits = countSetBits(number);
+    cout << "The number of unit bits in the number " << number << ": " << setBits << endl;
 
-    int maleFirstYearCount = 0;
-    int totalFirstYearCount = 0;
+    return 0;
+}
 
-    for (int i = 0; i < 7; i++) {
-        if (students[i].course == 1) { 
-            totalFirstYearCount++;
-            if (students[i].gender == 'M') { 
-                maleFirstYearCount++;
-            }
-        }
-    }
+//Task 4
+
+#include <iostream>
+using namespace std;
+
+bool isBitSet(int num, int position) {
+    
+    return (num & (1 << position)) != 0;
+}
+
+int main() {
+    int number, pos;
+
+    
+    cout << "Enter number: ";
+    cin >> number;
+    cout << "Enter the bit position to check (starting at 0): ";
+    cin >> pos;
 
    
-    double malePercentage = (totalFirstYearCount > 0) ? (maleFirstYearCount / (double)totalFirstYearCount) * 100 : 0;
-
-
-    cout << "The percentage of male students in the 1st year: " << malePercentage << "%" << endl;
+    if (isBitSet(number, pos)) {
+        cout << "Bit in position " << pos << " installed (1)." << endl;
+    }
+    else {
+        cout << "Bit in position " << pos << " not installed (0)." << endl;
+    }
 
     return 0;
 }
