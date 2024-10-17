@@ -5,41 +5,41 @@ enum Names { IVAN, PETRO, OKSANA, OLGA, ANDRIY, NATALIA, DMYTRO };
 
 struct Student {
     Names name;
-    int birthDay;   // День народження
-    int birthMonth; // Місяць народження
-    int course;     // Курс
-    char gender;    // Стать
+    int birthDay;   // Р”РµРЅСЊ РЅР°СЂРѕРґР¶РµРЅРЅСЏ
+    int birthMonth; // РњС–СЃСЏС†СЊ РЅР°СЂРѕРґР¶РµРЅРЅСЏ
+    int course;     // РљСѓСЂСЃ
+    char gender;    // РЎС‚Р°С‚СЊ
 };
 
 string getName(Names name) {
     switch (name) {
-    case IVAN: return "Іван";
-    case PETRO: return "Петро";
-    case OKSANA: return "Оксана";
-    case OLGA: return "Ольга";
-    case ANDRIY: return "Андрій";
-    case NATALIA: return "Наталія";
-    case DMYTRO: return "Дмитро";
-    default: return "Невідомо";
+    case IVAN: return "Р†РІР°РЅ";
+    case PETRO: return "РџРµС‚СЂРѕ";
+    case OKSANA: return "РћРєСЃР°РЅР°";
+    case OLGA: return "РћР»СЊРіР°";
+    case ANDRIY: return "РђРЅРґСЂС–Р№";
+    case NATALIA: return "РќР°С‚Р°Р»С–СЏ";
+    case DMYTRO: return "Р”РјРёС‚СЂРѕ";
+    default: return "РќРµРІС–РґРѕРјРѕ";
     }
 }
 
 int main() {
-    // Установка локалі
+    // РЈСЃС‚Р°РЅРѕРІРєР° Р»РѕРєР°Р»С–
     setlocale(LC_ALL, "uk-UA");
 
-    // Створення масиву студентів
+    // РЎС‚РІРѕСЂРµРЅРЅСЏ РјР°СЃРёРІСѓ СЃС‚СѓРґРµРЅС‚С–РІ
     Student students[7] = {
-        {IVAN, 15, 9, 1, 'M'},   // Іван, 15 вересня, 1 курс, чоловіча стать
-        {PETRO, 5, 10, 2, 'M'},  // Петро, 5 жовтня, 2 курс, чоловіча стать
-        {OKSANA, 12, 3, 1, 'F'}, // Оксана, 12 березня, 1 курс, жіноча стать
-        {OLGA, 25, 11, 3, 'F'},  // Ольга, 25 листопада, 3 курс, жіноча стать
-        {ANDRIY, 8, 5, 1, 'M'},  // Андрій, 8 травня, 1 курс, чоловіча стать
-        {NATALIA, 22, 9, 4, 'F'}, // Наталія, 22 вересня, 4 курс, жіноча стать
-        {DMYTRO, 30, 7, 1, 'M'}  // Дмитро, 30 липня, 1 курс, чоловіча стать
+        {IVAN, 15, 9, 1, 'M'},   // Р†РІР°РЅ, 15 РІРµСЂРµСЃРЅСЏ, 1 РєСѓСЂСЃ, С‡РѕР»РѕРІС–С‡Р° СЃС‚Р°С‚СЊ
+        {PETRO, 5, 10, 2, 'M'},  // РџРµС‚СЂРѕ, 5 Р¶РѕРІС‚РЅСЏ, 2 РєСѓСЂСЃ, С‡РѕР»РѕРІС–С‡Р° СЃС‚Р°С‚СЊ
+        {OKSANA, 12, 3, 1, 'F'}, // РћРєСЃР°РЅР°, 12 Р±РµСЂРµР·РЅСЏ, 1 РєСѓСЂСЃ, Р¶С–РЅРѕС‡Р° СЃС‚Р°С‚СЊ
+        {OLGA, 25, 11, 3, 'F'},  // РћР»СЊРіР°, 25 Р»РёСЃС‚РѕРїР°РґР°, 3 РєСѓСЂСЃ, Р¶С–РЅРѕС‡Р° СЃС‚Р°С‚СЊ
+        {ANDRIY, 8, 5, 1, 'M'},  // РђРЅРґСЂС–Р№, 8 С‚СЂР°РІРЅСЏ, 1 РєСѓСЂСЃ, С‡РѕР»РѕРІС–С‡Р° СЃС‚Р°С‚СЊ
+        {NATALIA, 22, 9, 4, 'F'}, // РќР°С‚Р°Р»С–СЏ, 22 РІРµСЂРµСЃРЅСЏ, 4 РєСѓСЂСЃ, Р¶С–РЅРѕС‡Р° СЃС‚Р°С‚СЊ
+        {DMYTRO, 30, 7, 1, 'M'}  // Р”РјРёС‚СЂРѕ, 30 Р»РёРїРЅСЏ, 1 РєСѓСЂСЃ, С‡РѕР»РѕРІС–С‡Р° СЃС‚Р°С‚СЊ
     };
 
-    // 1. Підрахунок студентів, народжених восени
+    // 1. РџС–РґСЂР°С…СѓРЅРѕРє СЃС‚СѓРґРµРЅС‚С–РІ, РЅР°СЂРѕРґР¶РµРЅРёС… РІРѕСЃРµРЅРё
     int autumnCount = 0;
     for (int i = 0; i < 7; i++) {
         if (students[i].birthMonth == 9 || students[i].birthMonth == 10 || students[i].birthMonth == 11) {
@@ -50,7 +50,7 @@ int main() {
     double autumnPercentage = (autumnCount / 7.0) * 100;
     cout << "Percentage of students born in autumn: " << autumnPercentage << "%" << endl;
 
-    // 2. Підрахунок кількості студентів 1-го курсу та відсотка чоловіків
+    // 2. РџС–РґСЂР°С…СѓРЅРѕРє РєС–Р»СЊРєРѕСЃС‚С– СЃС‚СѓРґРµРЅС‚С–РІ 1-РіРѕ РєСѓСЂСЃСѓ С‚Р° РІС–РґСЃРѕС‚РєР° С‡РѕР»РѕРІС–РєС–РІ
     int maleFirstYearCount = 0;
     int totalFirstYearCount = 0;
 
@@ -59,9 +59,9 @@ int main() {
             totalFirstYearCount++;
             if (students[i].gender == 'M') {
                 maleFirstYearCount++;
-            }
         }
     }
+}
 
     double malePercentage = (totalFirstYearCount > 0) ? (maleFirstYearCount / (double)totalFirstYearCount) * 100 : 0;
     cout << "The percentage of male students in the 1st year: " << malePercentage << "%" << endl;
