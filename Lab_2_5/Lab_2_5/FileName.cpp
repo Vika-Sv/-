@@ -1,13 +1,13 @@
 #include <iostream>
 
-// Структура вузла списку
+// РЎС‚СЂСѓРєС‚СѓСЂР° РІСѓР·Р»Р° СЃРїРёСЃРєСѓ
 struct Node {
     int data;
     Node* next;
 };
 
 
-// Inline функція для додавання елемента в кінець списку
+// Inline С„СѓРЅРєС†С–СЏ РґР»СЏ РґРѕРґР°РІР°РЅРЅСЏ РµР»РµРјРµРЅС‚Р° РІ РєС–РЅРµС†СЊ СЃРїРёСЃРєСѓ
 inline void addToEnd(Node** head, int value) {
     Node* newNode = new Node;
     newNode->data = value;
@@ -26,7 +26,7 @@ inline void addToEnd(Node** head, int value) {
 }
 
 
-// Inline функція для видалення елемента з кінця списку
+// Inline С„СѓРЅРєС†С–СЏ РґР»СЏ РІРёРґР°Р»РµРЅРЅСЏ РµР»РµРјРµРЅС‚Р° Р· РєС–РЅС†СЏ СЃРїРёСЃРєСѓ
 inline void removeFromEnd(Node** head) {
     if (*head == nullptr) {
         return;
@@ -46,7 +46,7 @@ inline void removeFromEnd(Node** head) {
     }
 }
 
-// Inline функція для пошуку елемента за значенням
+// Inline С„СѓРЅРєС†С–СЏ РґР»СЏ РїРѕС€СѓРєСѓ РµР»РµРјРµРЅС‚Р° Р·Р° Р·РЅР°С‡РµРЅРЅСЏРј
 inline Node* searchElement(Node* head, int value) {
     Node* current = head;
     while (current != nullptr) {
@@ -58,22 +58,22 @@ inline Node* searchElement(Node* head, int value) {
     return nullptr;
 }
 
-// Inline функція для розвороту списку
+// Inline С„СѓРЅРєС†С–СЏ РґР»СЏ СЂРѕР·РІРѕСЂРѕС‚Сѓ СЃРїРёСЃРєСѓ
 inline void reverseList(Node** head) {
     Node* prev = nullptr;
     Node* current = *head;
     Node* next = nullptr;
 
     while (current != nullptr) {
-        next = current->next;  // Зберігаємо наступний вузол
-        current->next = prev;  // Міняємо напрямок стрілки
-        prev = current;        // Переміщуємо prev вперед
-        current = next;        // Переміщуємо current вперед
+        next = current->next;  // Р—Р±РµСЂС–РіР°С”РјРѕ РЅР°СЃС‚СѓРїРЅРёР№ РІСѓР·РѕР»
+        current->next = prev;  // РњС–РЅСЏС”РјРѕ РЅР°РїСЂСЏРјРѕРє СЃС‚СЂС–Р»РєРё
+        prev = current;        // РџРµСЂРµРјС–С‰СѓС”РјРѕ prev РІРїРµСЂРµРґ
+        current = next;        // РџРµСЂРµРјС–С‰СѓС”РјРѕ current РІРїРµСЂРµРґ
     }
     *head = prev;
 }
 
-// Inline функція для виведення всіх елементів списку
+// Inline С„СѓРЅРєС†С–СЏ РґР»СЏ РІРёРІРµРґРµРЅРЅСЏ РІСЃС–С… РµР»РµРјРµРЅС‚С–РІ СЃРїРёСЃРєСѓ
 inline void printList(Node* head) {
     Node* current = head;
     while (current != nullptr) {
@@ -94,30 +94,30 @@ int main() {
     addToEnd(&head, 70);
     addToEnd(&head, 80);
 
-    std::cout << "Список після додавання елементів в кінець: ";
+    std::cout << "РЎРїРёСЃРѕРє РїС–СЃР»СЏ РґРѕРґР°РІР°РЅРЅСЏ РµР»РµРјРµРЅС‚С–РІ РІ РєС–РЅРµС†СЊ: ";
     printList(head);
 
 
-    // Видалення елемента з кінця
+    // Р’РёРґР°Р»РµРЅРЅСЏ РµР»РµРјРµРЅС‚Р° Р· РєС–РЅС†СЏ
     removeFromEnd(&head);
-    std::cout << "Список після видалення елемента з кінця: ";
+    std::cout << "РЎРїРёСЃРѕРє РїС–СЃР»СЏ РІРёРґР°Р»РµРЅРЅСЏ РµР»РµРјРµРЅС‚Р° Р· РєС–РЅС†СЏ: ";
     printList(head);
 
-    // Пошук елемента
+    // РџРѕС€СѓРє РµР»РµРјРµРЅС‚Р°
     Node* found = searchElement(head, 20);
     if (found != nullptr) {
-        std::cout << "Елемент знайдено: " << found->data << std::endl;
+        std::cout << "Р•Р»РµРјРµРЅС‚ Р·РЅР°Р№РґРµРЅРѕ: " << found->data << std::endl;
     }
     else {
-        std::cout << "Елемент не знайдено" << std::endl;
+        std::cout << "Р•Р»РµРјРµРЅС‚ РЅРµ Р·РЅР°Р№РґРµРЅРѕ" << std::endl;
     }
 
-    // Розворот списку
+    // Р РѕР·РІРѕСЂРѕС‚ СЃРїРёСЃРєСѓ
     reverseList(&head);
-    std::cout << "Список після розвороту: ";
+    std::cout << "РЎРїРёСЃРѕРє РїС–СЃР»СЏ СЂРѕР·РІРѕСЂРѕС‚Сѓ: ";
     printList(head);
 
-    // Очищення списку
+    // РћС‡РёС‰РµРЅРЅСЏ СЃРїРёСЃРєСѓ
     while (head != nullptr) {
         removeFromEnd(&head);
     }
