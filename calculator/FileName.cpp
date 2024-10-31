@@ -5,23 +5,20 @@
 
 using namespace std;
 
-// Функція для визначення пріоритету оператора
 int precedence(char c) {
     if (c == '+' || c == '-') {
-        return 1; // Пріоритет додавання і віднімання
+        return 1; 
     }
     if (c == '*' || c == '/') {
-        return 2; // Пріоритет множення і ділення
+        return 2; 
     }
-    return 0; // Якщо це не оператор
+    return 0; 
 }
 
-// Функція для перевірки, чи є символ оператором
 bool isOperator(char c) {
     return (c == '+' || c == '-' || c == '*' || c == '/');
 }
 
-// Функція для виконання операції
 int performOperation(char operation, int operand1, int operand2) {
     if (operation == '+') return operand1 + operand2;
     if (operation == '-') return operand1 - operand2;
@@ -36,7 +33,6 @@ int performOperation(char operation, int operand1, int operand2) {
     return 0;
 }
 
-// Функція для конвертації інфіксного виразу в постфіксну форму
 string infixToPostfix(const string& expression) {
     stack<char> operators;
     string postfix = "";
@@ -44,19 +40,17 @@ string infixToPostfix(const string& expression) {
     for (size_t i = 0; i < expression.length(); i++) {
         char current = expression[i];
 
-        // Ігноруємо пробіли
         if (isspace(current)) continue;
 
-        // Якщо це число (або кілька цифр), додаємо його до постфіксного виразу
         if (isdigit(current)) {
             while (i < expression.length() && isdigit(expression[i])) {
                 postfix += expression[i];
                 i++;
             }
-            postfix += ' '; // Пробіл для відокремлення чисел
-            i--; // Зменшуємо лічильник, бо цикл збільшить його ще раз
+            postfix += ' '; 
+            i--; 
         }
-        // Якщо це оператор
+
         else if (isOperator(current)) {
             while (!operators.empty() && precedence(operators.top()) >= precedence(current)) {
                 postfix += operators.top();
@@ -65,18 +59,18 @@ string infixToPostfix(const string& expression) {
             }
             operators.push(current);
         }
-        // Якщо це відкриваюча дужка
+   
         else if (current == '(') {
             operators.push(current);
         }
-        // Якщо це закриваюча дужка
+     
         else if (current == ')') {
             while (!operators.empty() && operators.top() != '(') {
                 postfix += operators.top();
                 postfix += ' ';
                 operators.pop();
             }
-            if (!operators.empty()) operators.pop(); // Видаляємо '('
+            if (!operators.empty()) operators.pop(); 
         }
         else {
             cout << "Error: Invalid character '" << current << "'" << endl;
@@ -84,7 +78,6 @@ string infixToPostfix(const string& expression) {
         }
     }
 
-    // Додаємо всі залишкові оператори в постфікс
     while (!operators.empty()) {
         if (operators.top() == '(') {
             cout << "Error: Mismatched parentheses" << endl;
@@ -98,17 +91,14 @@ string infixToPostfix(const string& expression) {
     return postfix;
 }
 
-// Функція для обчислення постфіксного виразу
 int evaluatePostfix(const string& expression) {
     stack<int> operands;
 
     for (size_t i = 0; i < expression.length(); i++) {
         char current = expression[i];
 
-        // Ігноруємо пробіли
         if (isspace(current)) continue;
 
-        // Якщо це число, додаємо його до стека
         if (isdigit(current)) {
             int number = 0;
             while (i < expression.length() && isdigit(expression[i])) {
@@ -116,9 +106,9 @@ int evaluatePostfix(const string& expression) {
                 i++;
             }
             operands.push(number);
-            i--; // Повертаємо лічильник, оскільки зовнішній цикл його збільшить
+            i--; 
         }
-        // Якщо це оператор
+        
         else if (isOperator(current)) {
             if (operands.size() < 2) {
                 cout << "Error: Not enough operands" << endl;
