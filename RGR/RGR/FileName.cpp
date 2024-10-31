@@ -2,7 +2,6 @@
 #include <string>
 using namespace std;
 
-
 bool isValidString(const string& str) {
   
     if (str.empty() || str[0] != '+') {
@@ -21,7 +20,7 @@ bool isValidString(const string& str) {
     if (!hasDigits) {
         return false;
     }
-
+  
     while (i < str.size()) {
         if (str[i] >= 'A' && str[i] <= 'K') {
             hasLettersOrSymbols = true; 
@@ -42,15 +41,15 @@ bool isValidString(const string& str) {
 int main() {
     setlocale(LC_ALL, "uk-UA");
     string input;
-    cout << "Ââåä³òü ðÿäîê: ";
+    cout << "Ð’Ð²ÐµÐ´Ñ–Ñ‚ÑŒ Ñ€ÑÐ´Ð¾Ðº: ";
     cin >> input;
 
     if (isValidString(input)) {
-        cout << "Ðÿäîê íàëåæèòü äî ìîâè L(V)." << endl;
+        cout << "Ð ÑÐ´Ð¾Ðº Ð½Ð°Ð»ÐµÐ¶Ð¸Ñ‚ÑŒ Ð´Ð¾ Ð¼Ð¾Ð²Ð¸ L(V)." << endl;
     }
     else {
-        cout << "Ïîìèëêà: ðÿäîê íå â³äïîâ³äàº ïðàâèëàì ìîâè L(V)." << endl;
+        cout << "ÐŸÐ¾Ð¼Ð¸Ð»ÐºÐ°: Ñ€ÑÐ´Ð¾Ðº Ð½Ðµ Ð²Ñ–Ð´Ð¿Ð¾Ð²Ñ–Ð´Ð°Ñ” Ð¿Ñ€Ð°Ð²Ð¸Ð»Ð°Ð¼ Ð¼Ð¾Ð²Ð¸ L(V)." << endl;
     }
-
+  
     return 0;
 }
